@@ -1,13 +1,21 @@
+package com.rcpergan.model;
+
+import javax.persistence.Entity;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class VisitingResearcher extends Instructor{
 
     private int hourlySalarly;
 
-    public VisitingResearcher(String name, String address, String phoneNumber, List<Course> courseList, int hourlySalarly) {
-        super(name, address, phoneNumber, courseList);
+    public VisitingResearcher(String name, String address, String phoneNumber, int hourlySalarly) {
+        super(name, address, phoneNumber);
         this.hourlySalarly = hourlySalarly;
+    }
+
+    public VisitingResearcher() {
+
     }
 
     public int getHourlySalarly() {
@@ -34,7 +42,7 @@ public class VisitingResearcher extends Instructor{
 
     @Override
     public String toString() {
-        return "VisitingResearcher{" +
+        return "com.rcpergan.model.VisitingResearcher{" +
                 "hourlySalarly=" + hourlySalarly +
                 '}';
     }

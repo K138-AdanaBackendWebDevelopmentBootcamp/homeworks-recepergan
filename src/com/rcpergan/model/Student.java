@@ -1,13 +1,23 @@
+package com.rcpergan.model;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private LocalDate birthDate;
     private String address;
     private String gender;
+
+
+    @ManyToMany(mappedBy = "studentList")
     private List<Course> courseList = new ArrayList<Course>();
 
 
@@ -60,6 +70,9 @@ public class Student {
         this.courseList = courseList;
     }
 
+    public int getId() {
+        return id;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -75,7 +88,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "com.rcpergan.model.Student{" +
                 "name='" + name + '\'' +
                 ", birthDate=" + birthDate +
                 ", address='" + address + '\'' +

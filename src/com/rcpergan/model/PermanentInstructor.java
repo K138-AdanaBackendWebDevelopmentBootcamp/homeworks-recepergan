@@ -1,12 +1,16 @@
+package com.rcpergan.model;
+
+import javax.persistence.Entity;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class PermanentInstructor extends Instructor {
     private int fixedSalary;
 
 
-    public PermanentInstructor(String name, String address, String phoneNumber, List<Course> courseList, int fixedSalary) {
-        super(name, address, phoneNumber, courseList);
+    public PermanentInstructor(String name, String address, String phoneNumber, int fixedSalary) {
+        super(name, address, phoneNumber);
         this.fixedSalary = fixedSalary;
     }
 
@@ -34,7 +38,7 @@ public class PermanentInstructor extends Instructor {
 
     @Override
     public String toString() {
-        return "PermanentInstructor{" +
+        return "com.rcpergan.model.PermanentInstructor{" +
                 "fixedSalary=" + fixedSalary +
                 '}';
     }

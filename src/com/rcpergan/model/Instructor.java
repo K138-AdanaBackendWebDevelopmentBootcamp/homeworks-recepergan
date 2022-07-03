@@ -1,21 +1,29 @@
+package com.rcpergan.model;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 public class Instructor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String address;
     private String phoneNumber;
-    private List<Course> studentList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "instructor")
+    private List<Course> courseList = new ArrayList<>();
 
     public Instructor() {
     }
 
-    public Instructor(String name, String address, String phoneNumber, List<Course> studentList) {
+    public Instructor(String name, String address, String phoneNumber) {
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.studentList = studentList;
     }
 
     public String getName() {
@@ -43,11 +51,11 @@ public class Instructor {
     }
 
     public List<Course> getStudentList() {
-        return studentList;
+        return courseList;
     }
 
     public void setStudentList(List<Course> studentList) {
-        this.studentList = studentList;
+        this.courseList = studentList;
     }
 
     @Override
@@ -55,21 +63,21 @@ public class Instructor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Instructor that = (Instructor) o;
-        return Objects.equals(name, that.name) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber) && Objects.equals(studentList, that.studentList);
+        return Objects.equals(name, that.name) && Objects.equals(address, that.address) && Objects.equals(phoneNumber, that.phoneNumber) && Objects.equals(courseList, that.courseList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, address, phoneNumber, studentList);
+        return Objects.hash(name, address, phoneNumber, courseList);
     }
 
     @Override
     public String toString() {
-        return "Instructor{" +
+        return "com.rcpergan.model.Instructor{" +
                 "name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", courseList=" + studentList +
+                ", courseList=" + courseList +
                 '}';
     }
 }
