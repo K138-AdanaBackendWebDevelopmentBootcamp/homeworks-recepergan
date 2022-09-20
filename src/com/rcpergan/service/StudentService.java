@@ -1,96 +1,100 @@
 package com.rcpergan.service;
 
+import com.rcpergan.model.Course;
 import com.rcpergan.model.Student;
 import com.rcpergan.repository.CrudRepository;
+import com.rcpergan.repository.StudentRepository;
 import com.rcpergan.utils.EntityManagerUtils;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class StudentService implements CrudRepository<Student> {
 
-    EntityManager en = EntityManagerUtils.getEntityManager("mysqlPU");
+public class StudentService implements CrudRepository<Student>, StudentRepository {
 
-
+    EntityManager em = EntityManagerUtils.getEntityManager("mysqlPU");
     @Override
     public List<Student> findAll() {
-        List<Student> studentList = en.createQuery("SELECT c FROM Student c", Student.class).getResultList();
+
+        List<Student> studentList = em.createQuery("FROM Student ", Student.class).getResultList();
         return studentList;
     }
 
     @Override
     public Student findById(int id) {
-        return en.find(Student.class,id);
+        return em.find(Student.class,id);
     }
 
-
-
     @Override
-    public void saveToDatabase(Student customer) {
+    public void saveToDatabase(Student student) {
 
         try {
-            en.getTransaction().begin();
-            en.persist(customer);
-            en.getTransaction().commit();
-        } catch (Exception e) {
-            en.getTransaction().rollback();
-        } finally {
-            // EntityManagerUtils.closeEntityManager(en);
+            em.getTransaction().begin();
+            em.persist(student);
+            em.getTransaction().commit();
+        }catch (Exception e) {
+            em.getTransaction().rollback();
+        }finally {
+            //  EntityManagerUtils.closeEntityManager(em);
+
         }
+
 
     }
 
     @Override
     public void deleteFromDatabase(Student student) {
-
         try {
-            en.getTransaction().begin();
-            en.remove(student);
-            en.getTransaction().commit();
-            System.out.println("Deleted ...");
-        } catch (Exception e) {
-            en.getTransaction().rollback();
-        } finally {
-            // EntityManagerUtils.closeEntityManager(en);
+            em.getTransaction().begin();
+            em.remove(student);
+            em.getTransaction().commit();
+            System.out.println("Deleted...");
+        }catch (Exception e) {
+            em.getTransaction().rollback();
+        }finally {
+            //  EntityManagerUtils.closeEntityManager(em);
         }
-    }
-
-    @Override
-    public void deleteFromDatabaseById(int id) {
-
-    }
-
-    @Override
-    public void updateOnDatabase(Student object) {
-
     }
 
     @Override
     public void deleteFromDatabase(int id) {
         try {
-            en.getTransaction().begin();
+            em.getTransaction().begin();
             Student foundStudent = findById(id);
-            en.remove(foundStudent);
-            en.getTransaction().commit();
-            System.out.println("Deleted ...");
-        } catch (Exception e) {
-            en.getTransaction().rollback();
-        } finally {
-            // EntityManagerUtils.closeEntityManager(en);
+            em.remove(foundStudent);
+            em.getTransaction().commit();
+            System.out.println("Deleted");
+        }catch (Exception e ) {
+            em.getTransaction().rollback();
+        }finally {
+            //  EntityManagerUtils.closeEntityManager(em);
         }
+
     }
 
-        @Override
-    public void deleteCustomerWithId(int id) {
+    @Override
+    public void updateOnDatabase(Student student, String name) {
         try {
-            en.getTransaction().begin();
-            en.createQuery("FROM Student s WHERE s.id =: sudId",Student.class).setParameter("sudId",id).getSingleResult();
-            en.getTransaction().commit();
-            System.out.println("Deleted ...");
+            em.getTransaction().begin();
+            em.merge(student);
+            em.getTransaction().commit();
+            System.out.println("Update...");
         } catch (Exception e) {
-            en.getTransaction().rollback();
+            em.getTransaction().rollback();
         } finally {
-            // EntityManagerUtils.closeEntityManager(en);
+            //  EntityManagerUtils.closeEntityManager(em);
         }
+
+    }
+
+    @Override
+    public void deleteStudentWithId(int id) {
+
+    }
+
+    @Override
+    public List<Course> getStudentCourseList(Student student) {
+        Student foundStudent = em.find(Student.class,student.getId());
+        return foundStudent.getCourseList();
     }
 }

@@ -2,7 +2,6 @@
   <library name="Hibernate-All_required_jars">
     <CLASSES>
       <root url="file://$USER_HOME$/Desktop/Kodluyoruz-Back-end/Hibernate-All_required_jars" />
-      <root url="jar://$USER_HOME$/Desktop/Kodluyoruz-Back-end/mysql-connector-java-8.0.27.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

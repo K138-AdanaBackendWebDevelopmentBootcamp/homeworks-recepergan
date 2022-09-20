@@ -17,7 +17,7 @@ public class Student {
     private String gender;
 
 
-    @ManyToMany(mappedBy = "studentList")
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Course> courseList = new ArrayList<Course>();
 
 
@@ -88,12 +88,12 @@ public class Student {
 
     @Override
     public String toString() {
-        return "com.rcpergan.model.Student{" +
-                "name='" + name + '\'' +
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", birthDate=" + birthDate +
                 ", address='" + address + '\'' +
                 ", gender='" + gender + '\'' +
-                ", courseList=" + courseList +
                 '}';
     }
 }

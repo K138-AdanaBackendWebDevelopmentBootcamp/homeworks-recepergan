@@ -1,17 +1,20 @@
 package com.rcpergan.model;
 
 import javax.persistence.Entity;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class PermanentInstructor extends Instructor {
+public class PermanentResearcher extends Instructor {
     private int fixedSalary;
 
 
-    public PermanentInstructor(String name, String address, String phoneNumber, int fixedSalary) {
+    public PermanentResearcher(String name, String address, String phoneNumber, int fixedSalary) {
         super(name, address, phoneNumber);
         this.fixedSalary = fixedSalary;
+    }
+
+    public PermanentResearcher() {
+
     }
 
     public int getFixedSalary() {
@@ -27,7 +30,7 @@ public class PermanentInstructor extends Instructor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        PermanentInstructor that = (PermanentInstructor) o;
+        PermanentResearcher that = (PermanentResearcher) o;
         return fixedSalary == that.fixedSalary;
     }
 

@@ -8,14 +8,10 @@ public interface CrudRepository <T>{
 
     List<T> findAll();
     T findById(int id);
-
-    void saveToDatabase(Student customer);
-
+    void saveToDatabase(T object);
     void deleteFromDatabase(T object);
-    void deleteFromDatabaseById(int id);
-    void updateOnDatabase(T object);
-
     void deleteFromDatabase(int id);
+    void updateOnDatabase(T object, String name);
 
-    void deleteCustomerWithId(int id);
+
 }

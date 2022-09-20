@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Course {
 
     @Id
@@ -18,7 +17,7 @@ public class Course {
     private String courseCode;
     private int creditScore;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "courseList",fetch = FetchType.LAZY)
     private List<Student> studentList = new ArrayList<Student>();
 
     @ManyToOne
