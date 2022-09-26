@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a926c94-fa9d-4cc8-b2f4-b517ec82e3d6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/homwework-03/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homwework-03/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homwework-03/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homwework-03/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homwework-03/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homwework-03/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homwework-03/src/main/java/com/example/homwework03/Homwework03Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homwework-03/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/homwework-03/src/test/java/com/example/homwework03/Homwework03ApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0a926c94-fa9d-4cc8-b2f4-b517ec82e3d6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1663672554521</updated>
       <workItem from="1663672555826" duration="13896000" />
-      <workItem from="1664191017706" duration="5814000" />
+      <workItem from="1664191017706" duration="6118000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1663686101752</created>
@@ -131,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664195993188</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Course controller,service,DAO , model added. All courses listed">
+      <created>1664196903577</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664196903577</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
