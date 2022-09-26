@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/homwework-03/homwework-03.iml" filepath="$PROJECT_DIR$/src/homwework-03/homwework-03.iml" />
       <module fileurl="file://$PROJECT_DIR$/school-management-system.iml" filepath="$PROJECT_DIR$/school-management-system.iml" />
     </modules>
   </component>
